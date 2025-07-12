@@ -20,7 +20,6 @@ class produtoController extends Controller
         // Verifica se o produto já existe
         $produtoExistente = produto::where('nome', $request->nome)->first();
         if ($produtoExistente) {
-            Console::line('Produto já existe com este nome.');
             return redirect()->back()->withErrors(['nome' => 'Já existe um produto cadastrado com este nome.'])->withInput();
         }
         // Criar e salvar o produto
