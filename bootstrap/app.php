@@ -10,9 +10,23 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
     )
-    ->withMiddleware(function (Middleware $middleware): void {
-        //
+    ->withMiddleware(function (Middleware $middleware) {
+        
+        // 👇 É SÓ ADICIONAR ESTA PARTE AQUI DENTRO
+        $middleware->validateCsrfTokens(except: [
+            'usuarios',
+            'usuarios/*', // Permite a rota e qualquer sub-rota
+            'produtos',
+            'produtos/*', // Permite a rota e qualquer sub-rota
+            'produtos/cadProduto',
+            'produtos/cadProduto/*', // Permite a rota e qualquer sub-rota
+            'produtos/store',
+            'produtos/store/*', // Permite a rota e qualquer sub-rota
+            'produtos/cadProduto/store',
+            'produtos/cadProduto/store/*', // Permite a rota e qualquer sub-ro
+        ]);
+
     })
-    ->withExceptions(function (Exceptions $exceptions): void {
+    ->withExceptions(function (Exceptions $exceptions) {
         //
     })->create();

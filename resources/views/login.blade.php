@@ -96,6 +96,11 @@
             <input type="password" id="senha" name="senha" required>
 
             <button type="submit">Entrar</button>
+            <br>
+            <br>
+            <p style="text-align: center;">Não tem uma conta?</p>
+            <br>    
+            <a href="{{ route('cadastrar') }}">Cadastrar</a>
         </form>
     </div>
 </body>
