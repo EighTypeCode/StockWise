@@ -1,2 +1,1 @@
-# StockWise
-First Project
+ablabaaadadadadadad
